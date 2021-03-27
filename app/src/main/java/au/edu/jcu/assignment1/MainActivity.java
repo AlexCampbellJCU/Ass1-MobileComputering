@@ -19,23 +19,22 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Button cbutton;
         Button sbutton;
-        final EditText measureText;
-        final TextView view;
+        final EditText measurement;
+        final TextView textView;
 
         sbutton = (Button) findViewById(R.id.settingsButton);
         cbutton = (Button) findViewById(R.id.convertButton);
-        measureText = (EditText) findViewById(R.id.measurement);
-        view = (TextView) findViewById(R.id.textView);
-
-        Intent intent = getIntent();
-        positionToShowToSpinner = intent.getIntExtra("position", 1);
+        measurement = (EditText) findViewById(R.id.measurement);
+        textView = (TextView) findViewById(R.id.textView);
 
         cbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Converter converter = new Converter(fromspinner, tospinner);
-                //double result = converter.convert(input);
-                //toText.setText(String.valueOf(result));
+                Intent intent = getIntent();
+                positionToShowToSpinner = intent.getIntExtra("position", 1);
+                Converter converter = new Converter(positionToShowToSpinner);
+                double result = converter.convert(measurement);
+                textView.setText(String.valueOf(result));
 
             }
         });

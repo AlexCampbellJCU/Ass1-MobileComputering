@@ -1,5 +1,7 @@
 package au.edu.jcu.assignment1;
 
+import android.widget.EditText;
+
 public class Converter {
     private double constant;
 
@@ -99,7 +101,7 @@ public class Converter {
 
     }
 
-    public double convert(double input) {
+    public double convert(EditText input) {
         return input * constant;
     }
 
