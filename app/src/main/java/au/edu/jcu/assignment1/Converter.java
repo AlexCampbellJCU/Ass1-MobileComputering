@@ -101,15 +101,8 @@ public class Converter {
 
     }
 
-    public double convert(EditText input) {
+    public double convert(double input) {
         return input * constant;
     }
 
-    public double getConstant() {
-        return constant;
-    }
-
-    public void setConstant(double constant) {
-        this.constant = constant;
-    }
 }

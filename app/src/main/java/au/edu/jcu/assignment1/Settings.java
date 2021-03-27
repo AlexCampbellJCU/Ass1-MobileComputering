@@ -7,13 +7,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-public class Settings extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class Settings extends AppCompatActivity {
+    public static int SETTINGS_REQUEST = 420;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
@@ -26,22 +29,20 @@ public class Settings extends AppCompatActivity implements AdapterView.OnItemSel
         spinner_to.setAdapter(adapter);
         spinner_from.setAdapter(adapter);
 
-        spinner_to.setOnItemSelectedListener(this);
-        spinner_from.setOnItemSelectedListener(this);
-    }
-    @Override
-    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-        Integer positionOfSpinner = i;
-        Intent intent = new Intent(this, Settings.class);
-        intent.putExtra("position", positionOfSpinner);
+        String to_spinner = (String) spinner_to.getSelectedItem();
+        String from_spinner = (String) spinner_from.getSelectedItem();
+
+        Intent intent = new Intent();
+        intent.putExtra("position1", to_spinner);
+        intent.putExtra("position2", from_spinner);
     }
 
-    @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
 
     }
 
     public void buttonSubmit(View view) {
+
         finish();
     }
 }
