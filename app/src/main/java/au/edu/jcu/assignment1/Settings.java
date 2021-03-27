@@ -31,9 +31,9 @@ public class Settings extends AppCompatActivity implements AdapterView.OnItemSel
     }
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-        String text = adapterView.getItemAtPosition(i).toString();
-
-
+        Integer positionOfSpinner = i;
+        Intent intent = new Intent(this, Settings.class);
+        intent.putExtra("position", positionOfSpinner);
     }
 
     @Override
@@ -42,9 +42,6 @@ public class Settings extends AppCompatActivity implements AdapterView.OnItemSel
     }
 
     public void buttonSubmit(View view) {
-
-        Intent intent = new Intent(this, Settings.class);
-        intent.putExtra("text", spinner_to.getSelectedItem().toString());
-                finish();
+        finish();
     }
 }

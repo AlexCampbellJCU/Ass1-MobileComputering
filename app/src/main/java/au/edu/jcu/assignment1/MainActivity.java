@@ -27,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
         measureText = (EditText) findViewById(R.id.measurement);
         view = (TextView) findViewById(R.id.textView);
 
+        Intent intent = getIntent();
+        positionToShowToSpinner = intent.getIntExtra("position", 1);
 
         cbutton.setOnClickListener(new View.OnClickListener() {
             @Override
